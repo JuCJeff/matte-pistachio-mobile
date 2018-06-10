@@ -1,14 +1,28 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Ionic Blank
+      Charity Warrior
     </ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+<ion-content class="tutorial-page">
+
+  <ion-slides pager>
+
+    <ion-slide *ngFor="let slide of slides">
+      <img [src]="slide.image" class="slide-image" id="covers" />
+      <h2 class="slide-title" [innerHTML]="slide.title"></h2>
+      <p [innerHTML]="slide.description"></p>
+    </ion-slide>
+
+    <ion-slide>
+      <img src="assets/imgs/homePic.jpg" class="slide-image" id="cover" />
+      <p class="slide-title">Join to collectively help the world!</p>
+
+      <button ion-button icon-start color="light" round outline (click)="navigateToLogin()">Login</button>
+      <button ion-button icon-start color="light" round outline (click)="navigateToRegistration()">Register</button>
+    </ion-slide>
+
+  </ion-slides>
 </ion-content>

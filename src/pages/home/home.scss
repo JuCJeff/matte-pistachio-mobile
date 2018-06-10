@@ -1,3 +1,51 @@
 page-home {
 
+    .content{
+        background-color: white;
+    }
+
+    //BUtton customization
+    .button-md{
+        color: black;
+    }
+    .scroll-content{
+        color: black;
+    }
+
+    //Slide customization
+
+    .toolbar-background {
+        border-color: transparent;
+    }
+    
+    .slide-zoom {
+        height: 100%;
+    }
+    
+    b {
+        font-weight: 500;
+    }
+    
+    p {
+        padding: 0 40px;
+        font-size: 14px;
+        line-height: 1.5;
+        color: #60646B;
+    
+        b {
+            color: #000000;
+        }
+    }
+
+    img#cover.slide-image {
+        border-radius: 0.5em;
+        width: 18em;
+        margin-top: 1em;
+    }
+
+    img#covers.slide-image {
+        border-radius: 0.5em;
+        width: 18em;
+        margin-top: 1em;
+    }
 }
