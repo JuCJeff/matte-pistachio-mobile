@@ -8,16 +8,20 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { RegistrationPage } from '../pages/Registration/registration';
 import { LoginPage } from '../pages/Login/login';
+import { ProfilePage } from '../Profile/profile';
+import { HttpModule } from '@angular/http';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
     RegistrationPage,
-    LoginPage
+    LoginPage,
+    ProfilePage
   ],
   imports: [
     BrowserModule,
+    HttpModule,
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
@@ -25,7 +29,8 @@ import { LoginPage } from '../pages/Login/login';
     MyApp,
     HomePage,
     RegistrationPage,
-    LoginPage
+    LoginPage,
+    ProfilePage
   ],
   providers: [
     StatusBar,

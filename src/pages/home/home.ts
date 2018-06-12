@@ -2,11 +2,15 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { RegistrationPage } from '../Registration/registration';
 import { LoginPage } from '../Login/login';
+//For fetching data from 3rd party APIs
+import { Http } from '@angular/http';
+import 'rxjs/add/operator/map';
 
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
 })
+
 export class HomePage {
 
   slides = [
@@ -22,7 +26,7 @@ export class HomePage {
     }
   ];
 
-  constructor(public navCtrl: NavController) {
+  constructor(public navCtrl: NavController, public http: Http) {
 
   }
 
