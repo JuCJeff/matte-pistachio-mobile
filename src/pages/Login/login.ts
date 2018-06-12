@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { Http } from '@angular/http'
-import { ProfilePage } from '../../Profile/profile';
+import { ProfilePage } from '../Profile/profile';
 // import { User } from '../../Models/user';
 // import { TabsPage } from '../Tabs/tabs';
 

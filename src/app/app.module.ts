@@ -8,8 +8,9 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { RegistrationPage } from '../pages/Registration/registration';
 import { LoginPage } from '../pages/Login/login';
-import { ProfilePage } from '../Profile/profile';
+import { ProfilePage } from '../pages/Profile/profile';
 import { HttpModule } from '@angular/http';
+import { PaymentPage } from '../pages/Payment/payment';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { HttpModule } from '@angular/http';
     HomePage,
     RegistrationPage,
     LoginPage,
-    ProfilePage
+    ProfilePage,
+    PaymentPage
   ],
   imports: [
     BrowserModule,
@@ -30,7 +32,8 @@ import { HttpModule } from '@angular/http';
     HomePage,
     RegistrationPage,
     LoginPage,
-    ProfilePage
+    ProfilePage,
+    PaymentPage
   ],
   providers: [
     StatusBar,

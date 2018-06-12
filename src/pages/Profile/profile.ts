@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { PaymentPage } from '../Payment/payment';
+
 
 
 @Component({
@@ -17,4 +19,9 @@ export class ProfilePage {
   ionViewDidLoad() {
     this.username = this.navParams.get("username");
   }
+
+  navigateToPayment() {
+    this.navCtrl.push(PaymentPage);
+  }
+
 }
