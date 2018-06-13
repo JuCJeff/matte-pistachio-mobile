@@ -11,6 +11,9 @@ import { LoginPage } from '../pages/Login/login';
 import { ProfilePage } from '../pages/Profile/profile';
 import { HttpModule } from '@angular/http';
 import { PaymentPage } from '../pages/Payment/payment';
+import { AuthService } from '../auth.service';
+import { CharityListPage } from '../pages/CharityList/charityList';
+import { CharityProfilePage } from '../pages/CharityProfile/charityProfile';
 
 @NgModule({
   declarations: [
@@ -19,7 +22,9 @@ import { PaymentPage } from '../pages/Payment/payment';
     RegistrationPage,
     LoginPage,
     ProfilePage,
-    PaymentPage
+    PaymentPage,
+    CharityProfilePage,
+    CharityListPage
   ],
   imports: [
     BrowserModule,
@@ -33,11 +38,14 @@ import { PaymentPage } from '../pages/Payment/payment';
     RegistrationPage,
     LoginPage,
     ProfilePage,
-    PaymentPage
+    PaymentPage,
+    CharityProfilePage,
+    CharityListPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
+    AuthService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

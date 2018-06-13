@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, Injectable } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { Http } from '@angular/http'
 import { ProfilePage } from '../Profile/profile';
+import { AuthService } from "../../auth.service";
 // import { User } from '../../Models/user';
 // import { TabsPage } from '../Tabs/tabs';
 
@@ -10,12 +11,14 @@ import { ProfilePage } from '../Profile/profile';
     templateUrl: 'login.html'
 })
 
+@Injectable ()
+
 export class LoginPage {
 
     public username: string;
     public password: string;
 
-    constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http) {
+    constructor(public navCtrl: NavController, public authService: AuthService) {
 
     }
 
@@ -28,26 +31,17 @@ export class LoginPage {
     }
 
     login() {
-        this.http
-            .post("http://localhost:3000/login", {
-                username: this.username,
-                password: this.password
-            })
-            .subscribe(
-                result => {
-                    console.log(result);
 
-                    // Our username and password (on this) should have data from the user
-                    this.navCtrl.push(ProfilePage, {
-                        username: this.username,
-                        password: this.password
-                    });
-                },
+        let callback = (err) => {
+            if(err) {
+                console.log("Cannot log in");
+                return;
+            }
 
-                error => {
-                    console.log(error);
-                }
-            );
+            this.navCtrl.push(ProfilePage);
+        }
+
+        this.authService.login(this.username, this.password, callback);
     }
 
     //   navigateToProfile() {

@@ -12,7 +12,73 @@
         <script src="https://checkout.stripe.com/checkout.js" class="stripe-button" data-key="pk_test_gZIrcBh8WfVhCqjg2PEhhBAp" data-amount="999"
             data-name="Demo Site" data-description="Example charge" data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
             data-locale="auto" data-zip-code="true">
-        </script>
+            </script>
     </form>
-    
+
+    <!--The needed information from users-->
+    <i primary class="fa fa-cart-plus fa-lg"></i>
+
+    <ion-list>
+
+        <ion-item>
+            <ion-label stacked>Holder Name</ion-label>
+            <ion-input type="text"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label stacked>Card number</ion-label>
+            <ion-input type="number"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label stacked>CVV</ion-label>
+            <ion-input type="number"></ion-input>
+        </ion-item>
+
+
+        <ion-item>
+            <ion-label stacked>Expiration Month</ion-label>
+            <ion-select [(ngModel)]="month">
+                <ion-option value="01">January</ion-option>
+                <ion-option value="02">February</ion-option>
+                <ion-option value="03">March</ion-option>
+                <ion-option value="04">April</ion-option>
+                <ion-option value="05">May</ion-option>
+                <ion-option value="06">June</ion-option>
+                <ion-option value="07">July</ion-option>
+                <ion-option value="08">August</ion-option>
+                <ion-option value="09">September</ion-option>
+                <ion-option value="10">October</ion-option>
+                <ion-option value="11">November</ion-option>
+                <ion-option value="12">December</ion-option>
+            </ion-select>
+        </ion-item>
+
+        <ion-item>
+            <ion-label stacked>Expiration Year</ion-label>
+            <ion-select [(ngModel)]="year">
+                <ion-option>2018</ion-option>
+                <ion-option>2019</ion-option>
+                <ion-option>2020</ion-option>
+                <ion-option>2021</ion-option>
+                <ion-option>2022</ion-option>
+                <ion-option>2023</ion-option>
+                <ion-option>2024</ion-option>
+                <ion-option>2025</ion-option>
+                <ion-option>2026</ion-option>
+                <ion-option>2027</ion-option>
+                <ion-option>2028</ion-option>
+            </ion-select>
+        </ion-item>
+
+        <ion-item>
+            <ion-label stacked>Card nickname</ion-label>
+            <ion-input type="string"></ion-input>
+        </ion-item>
+
+    </ion-list>
+
+    <!--The submit button-->
+    <button ion-button icon-start color="dark" round outline>Add Payment</button>
+
 </ion-content>

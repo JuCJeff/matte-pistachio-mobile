@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, App } from 'ionic-angular';
 import { RegistrationPage } from '../Registration/registration';
 import { LoginPage } from '../Login/login';
 //For fetching data from 3rd party APIs
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
+import { ProfilePage } from '../Profile/profile';
 
 @Component({
   selector: 'page-home',
@@ -26,8 +27,10 @@ export class HomePage {
     }
   ];
 
-  constructor(public navCtrl: NavController, public http: Http) {
-
+  constructor(public navCtrl: NavController, public http: Http, private app: App) {
+      if(localStorage.getItem("TOKEN")) {
+        this.app.getRootNav().setRoot(ProfilePage);
+      }
   }
 
   navigateToRegistration() {
@@ -35,7 +38,7 @@ export class HomePage {
   }
 
   navigateToLogin() {
-    this.navCtrl.push(LoginPage);
+    this.navCtrl.setRoot(LoginPage);
   }
 
 }
