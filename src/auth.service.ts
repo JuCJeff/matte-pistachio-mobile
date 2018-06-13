@@ -1,5 +1,4 @@
 import { Http } from "@angular/http";
-import { Charity } from "./Models/charity";
 import { Injectable } from "@angular/core";
 
 @Injectable()

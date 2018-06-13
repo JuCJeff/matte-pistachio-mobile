@@ -5,10 +5,11 @@ import { CharityProfilePage } from '../CharityProfile/charityProfile';
 
 @IonicPage()
 @Component({
-  selector: 'page-charityList',
-  templateUrl: 'charityList.html',
+  selector: 'page-personalCharity',
+  templateUrl: 'personalCharity.html',
 })
-export class CharityListPage {
+
+export class PersonalCharityPage {
 
   //For item lists
   public charities: Array<Charity> = [];
@@ -19,7 +20,7 @@ export class CharityListPage {
     var charity1 = new Charity();
     charity1.id = 1;
     charity1.name = "ACCESS College Foundation";
-    charity1.mission = "You are donating $5 for ACCESS monthly.";
+    charity1.mission = "ACCESS College Foundation was founded in 1988 to eliminate barriers to postsecondary education and increase college attainment for underrepresented and low-income students.";
     charity1.img = "assets/imgs/Charity1.jpeg";
     charity1.url = "https://www.accesscollege.org/";
     charity1.bank = "Chase";
@@ -28,7 +29,7 @@ export class CharityListPage {
     var charity2 = new Charity();
     charity2.id = 2;
     charity2.name = "Animal Equality";
-    charity2.mission = "You are donating $10 for animal equality monthly.";
+    charity2.mission = "Animal Equality is an international organization working with society, governments and companies to end cruelty to farmed animals.";
     charity2.img = "assets/imgs/Charity2.jpg";
     charity2.url = "https://www.animalequality.net/";
     charity2.bank = "Chase";
@@ -37,7 +38,7 @@ export class CharityListPage {
     var charity3 = new Charity();
     charity3.id = 3;
     charity3.name = "AIDS United";
-    charity3.mission = "You are donating $5 for AIDS United.";
+    charity3.mission = "AIDS United’s mission is to end the AIDS epidemic in the United States.";
     charity3.img = "assets/imgs/Charity3.jpg";
     charity3.url = "https://www.aidsunited.org/";
     charity3.bank = "Bank of America";
@@ -46,7 +47,7 @@ export class CharityListPage {
     var charity4 = new Charity();
     charity4.id = 4;
     charity4.name = "Global Fund for Children";
-    charity4.mission = "You are donating $3 for Global Fund for Children.";
+    charity4.mission = "Global Fund for Children partners with grassroots organizations around the world to help children and youth reach their full potential and advance their rights.";
     charity4.img = "assets/imgs/Charity4.png";
     charity4.url = "https://globalfundforchildren.org/";
     charity4.bank = "Bank of America";
@@ -60,7 +61,7 @@ export class CharityListPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad CharityListPage');
+    console.log('ionViewDidLoad PersonalCharityPage');
   }
 
   navigateToCharity(charity: Charity) {

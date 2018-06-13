@@ -1,0 +1,43 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>
+            Charity Profile
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+    <!--Fab-->
+    <ion-fab top right edge>
+        <button ion-fab color="light">
+            <ion-icon ios="ios-heart" md="md-heart" color="main"></ion-icon>
+        </button>
+        <ion-fab-list side="bottom">
+            <button ion-fab color="light">
+                <ion-icon name="bonfire" color="main"></ion-icon>
+            </button>
+            <button ion-fab color="light">
+                <ion-icon name="flame" color="main"></ion-icon>
+            </button>
+        </ion-fab-list>
+    </ion-fab>
+
+    <!--Profile Picture-->
+    <ion-card>
+        <img src="{{charity.img}}" />
+    </ion-card>
+
+    <!--Charity Description-->
+    <p>Welcome to {{charity.name}}.</p>
+    <a href="{{charity.url}}" target="_blank"> {{charity.url}} </a>
+    <p id="mission">{{charity.mission}}</p>
+
+    <p class="notification">Thank you for being a charity hero!</p>
+
+    <div class="buttons">
+        <button ion-button icon-start color="dark" round outline>Donate Now</button>
+        <button ion-button icon-start color="dark" round outline>Add to List</button>
+    </div>
+
+</ion-content>

@@ -3,8 +3,8 @@ import { NavController, NavParams } from 'ionic-angular';
 import { Charity } from '../../Models/charity'
 
 @Component({
-  selector: 'page-charityprofile',
-  templateUrl: 'charityprofile.html'
+  selector: 'page-charityProfile',
+  templateUrl: 'charityProfile.html'
 })
 export class CharityProfilePage {
 

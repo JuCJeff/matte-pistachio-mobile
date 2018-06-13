@@ -12,6 +12,10 @@
     <br/>
     <p class="welcome">Welcome!</p>
 
-    <button ion-button icon-start color="dark" round outline (click)="navigateToPayment()">Add Payment</button>
+    <div class="buttons">
+        <button ion-button icon-start color="dark" round outline (click)="navigateToPersonalCharity()">My Charities</button>
+        <button ion-button icon-start color="dark" round outline (click)="navigateToPayment()">Payment</button>
+        <button ion-button icon-start color="dark" round outline (click)="navigateToLogin()">Log out</button>
+    </div>
 
 </ion-content>

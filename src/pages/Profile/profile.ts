@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { PaymentPage } from '../Payment/payment';
+import { LoginPage } from '../Login/login';
+import { PersonalCharityPage } from '../PersonalCharity/personalCharity';
 
 
 
@@ -25,8 +27,16 @@ export class ProfilePage {
     console.log("profile name", this.token);
   }
 
+  navigateToPersonalCharity() {
+    this.navCtrl.push(PersonalCharityPage);
+  }
+
   navigateToPayment() {
     this.navCtrl.push(PaymentPage);
+  }
+
+  navigateToLogin() {
+    this.navCtrl.setRoot(LoginPage);
   }
 
 }
