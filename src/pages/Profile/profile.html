@@ -10,12 +10,65 @@
     <!--The user profolio generals-->
     <ion-icon name="logo-octocat" item-end large id="octocat"></ion-icon>
     <br/>
-    <p class="welcome">Welcome!</p>
+    <p class="welcome">Welcome {{username}}!</p>
 
+    <!--Customer information-->
+    <img src="assets/imgs/profile_pic.jpeg" id="profile">
+    <p id="username">{{username}}</p>
+
+    <!--User current status revealed-->
+    <ion-grid>
+        <ion-row class="orange">
+            <ion-col>$300</ion-col>
+            <ion-col>4</ion-col>
+            <ion-col>$130</ion-col>
+        </ion-row>
+        <ion-row class="tabs">
+            <ion-col>Money Raised</ion-col>
+            <ion-col>My Charity</ion-col>
+            <ion-col>Most Money</ion-col>
+        </ion-row>
+    </ion-grid>
+
+    <!--Pie Chart Graph-->
+    <div class="chart-container" style="position: relative;">
+        <ion-card>
+            <ion-card-header>
+                Donation Distribution
+            </ion-card-header>
+
+            <ion-card-content>
+                <canvas #pieCanvas id="chart" height="400" width="400"></canvas>
+            </ion-card-content>
+        </ion-card>
+    </div>
+
+    <!--Navigation buttons-->
     <div class="buttons">
         <button ion-button icon-start color="dark" round outline (click)="navigateToPersonalCharity()">My Charities</button>
         <button ion-button icon-start color="dark" round outline (click)="navigateToPayment()">Payment</button>
         <button ion-button icon-start color="dark" round outline (click)="navigateToLogin()">Log out</button>
     </div>
+
+    <!--The fab button-->
+    <ion-fab right bottom>
+        <button ion-fab mini color="main">
+            <ion-icon name="share-alt" color="light"></ion-icon>
+        </button>
+        <ion-fab-list side="left" color="main">
+            <button ion-fab color="main">
+                <ion-icon name="logo-facebook" color="light"></ion-icon>
+            </button>
+            <button ion-fab color="main">
+                <ion-icon name="logo-twitter" color="light"></ion-icon>
+            </button>
+            <button ion-fab color="main">
+                <ion-icon name="logo-vimeo" color="light"></ion-icon>
+            </button>
+            <button ion-fab color="main">
+                <ion-icon name="logo-googleplus" color="light"></ion-icon>
+            </button>
+        </ion-fab-list>
+    </ion-fab>
 
 </ion-content>

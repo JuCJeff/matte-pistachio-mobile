@@ -1,0 +1,52 @@
+page-profile {
+
+    //Head Area
+    ion-icon {
+        font-size: 3em;
+    }
+    
+    #octocat{
+        color: #ff3e00;
+    }
+    
+    .welcome{
+        color: black;
+        font-size: 2em;
+        font-weight: bolder;
+        margin-top: 0em;
+    }
+
+    #profile{
+        border-radius: 0.5em;
+        width: 30em;
+        margin-top: -1em;
+    }
+
+    #username{
+        font-weight: 300;
+        font-size: 1.5em;
+        margin-top: -0.5em auto -0.5em;
+    }
+    //*****
+
+    //Current status
+    .orange{
+        color: #ff3e00;
+        font-size: 1.5em;
+        font-weight: bold;
+    }
+
+    .tabs{
+        font-weight: 300;
+        font-size: 1.2em;
+    }
+    
+    $tabs-ios-tab-icon-color-active: #ff3e00;
+    //*****
+
+    //Pie Chart
+
+    //*****
+    
+
+}

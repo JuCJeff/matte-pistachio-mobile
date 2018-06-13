@@ -21,7 +21,7 @@ export class PersonalCharityPage {
     charity1.id = 1;
     charity1.name = "ACCESS College Foundation";
     charity1.mission = "ACCESS College Foundation was founded in 1988 to eliminate barriers to postsecondary education and increase college attainment for underrepresented and low-income students.";
-    charity1.img = "assets/imgs/Charity1.jpeg";
+    charity1.img = "assets/imgs/Charity1.jpg";
     charity1.url = "https://www.accesscollege.org/";
     charity1.bank = "Chase";
     charity1.accountnumber = "1234567890123456";
