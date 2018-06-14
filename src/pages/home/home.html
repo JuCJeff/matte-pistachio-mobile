@@ -14,6 +14,9 @@
       <img [src]="slide.image" class="slide-image" id="covers" />
       <h2 class="slide-title" [innerHTML]="slide.title"></h2>
       <p [innerHTML]="slide.description"></p>
+
+      <button ion-button large full (click)="openJavaScript()">Stripe JavaScript</button>
+      <button ion-button large full (click)="openNative()">Stripe Native</button>
     </ion-slide>
 
     <ion-slide>

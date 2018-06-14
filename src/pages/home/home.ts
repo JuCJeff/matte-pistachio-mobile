@@ -6,6 +6,9 @@ import { LoginPage } from '../Login/login';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { TabsPage } from '../Tabs/tabs';
+import { ProfilePage } from '../Profile/profile';
+import { StripeJavaScriptPage } from '../stripe-java-script/stripe-java-script';
+import { StripeNativePage } from '../stripe-native/stripe-native';
 
 @Component({
   selector: 'page-home',
@@ -39,6 +42,14 @@ export class HomePage {
 
   navigateToLogin() {
     this.navCtrl.setRoot(LoginPage);
+  }
+
+  openJavaScript(){
+    this.navCtrl.push(StripeJavaScriptPage);
+  }
+ 
+  openNative(){
+    this.navCtrl.push(StripeNativePage);
   }
 
 }

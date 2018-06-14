@@ -17,6 +17,10 @@ import { CharityProfilePage } from '../pages/CharityProfile/charityProfile';
 import { PersonalCharityPage } from '../pages/PersonalCharity/personalCharity';
 import { TabsPage } from '../pages/Tabs/tabs';
 
+import { StripeJavaScriptPage } from '../pages/stripe-java-script/stripe-java-script';
+import { StripeNativePage } from '../pages/stripe-native/stripe-native';
+import { Stripe } from '@ionic-native/stripe';
+
 @NgModule({
   declarations: [
     MyApp,
@@ -28,7 +32,9 @@ import { TabsPage } from '../pages/Tabs/tabs';
     CharityProfilePage,
     CharityListPage,
     PersonalCharityPage,
-    TabsPage
+    TabsPage,
+    StripeJavaScriptPage,
+    StripeNativePage
   ],
   imports: [
     BrowserModule,
@@ -46,12 +52,15 @@ import { TabsPage } from '../pages/Tabs/tabs';
     CharityProfilePage,
     CharityListPage,
     PersonalCharityPage,
-    TabsPage
+    TabsPage,
+    StripeJavaScriptPage,
+    StripeNativePage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     AuthService,
+    Stripe,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
