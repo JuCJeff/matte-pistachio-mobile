@@ -12,11 +12,16 @@
         <script src="https://checkout.stripe.com/checkout.js" class="stripe-button" data-key="pk_test_gZIrcBh8WfVhCqjg2PEhhBAp" data-amount="999"
             data-name="Demo Site" data-description="Example charge" data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
             data-locale="auto" data-zip-code="true">
-            </script>
+        </script>
     </form>
 
     <!--The needed information from users-->
-    <i primary class="fa fa-cart-plus fa-lg"></i>
+    <div class="font-awesome">
+        <i class="fa fa-cc-visa fa-2x"></i>
+        <i class="fa fa-cc-mastercard fa-2x"></i>
+        <i class="fa fa-cc-amex fa-2x"></i>
+        <i class="fa fa-cc-discover fa-2x"></i>
+    </div>
 
     <ion-list>
 
@@ -78,7 +83,27 @@
 
     </ion-list>
 
+    <div class="font-awesome" align="left">
+        <p class="notification">Or you can donate using</p>
+        <i class="fa fa-paypal fa-2x"></i>
+    </div>
+
     <!--The submit button-->
-    <button ion-button icon-start color="dark" round outline>Add Payment</button>
+    <button ion-button icon-start color="dark" round outline>Donate</button>
+
+    <form action="/" method="post" id="payment-form">
+    
+        <div class="form-row">
+          <div id="card-element">
+            <!-- a Stripe Element will be inserted here. -->
+          </div>
+    
+          <!-- Used to display Element errors -->
+          <div id="card-errors" role="alert"></div>
+        </div>
+    
+      <button ion-button round outline color="dark" >Donate</button>
+        
+    </form> 
 
 </ion-content>

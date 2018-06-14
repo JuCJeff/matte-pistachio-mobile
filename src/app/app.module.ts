@@ -15,6 +15,10 @@ import { AuthService } from '../auth.service';
 import { CharityListPage } from '../pages/CharityList/charityList';
 import { CharityProfilePage } from '../pages/CharityProfile/charityProfile';
 
+import { StripeJavaScriptPage } from '../pages/stripe-java-script/stripe-java-script';
+import { StripeNativePage } from '../pages/stripe-native/stripe-native';
+import { Stripe } from '@ionic-native/stripe';
+
 @NgModule({
   declarations: [
     MyApp,
@@ -24,7 +28,9 @@ import { CharityProfilePage } from '../pages/CharityProfile/charityProfile';
     ProfilePage,
     PaymentPage,
     CharityProfilePage,
-    CharityListPage
+    CharityListPage,
+    StripeJavaScriptPage,
+    StripeNativePage
   ],
   imports: [
     BrowserModule,
@@ -40,12 +46,15 @@ import { CharityProfilePage } from '../pages/CharityProfile/charityProfile';
     ProfilePage,
     PaymentPage,
     CharityProfilePage,
-    CharityListPage
+    CharityListPage,
+    StripeJavaScriptPage,
+    StripeNativePage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     AuthService,
+    Stripe,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
