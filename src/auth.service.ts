@@ -9,6 +9,21 @@ export class AuthService {
     ) {
     }
 
+    getMe(callback) {
+        this.http
+            .get("http://localhost:3000/me?jwt=" + localStorage.getItem("TOKEN"))
+            .subscribe(
+                result => {
+                    var responseJson = result.json();
+                    callback(null, responseJson);
+                },
+
+                error => {
+                    callback(error);
+                }
+            );
+    }
+
     login(username: string, password: string, callback: Function) {
         this.http
             .post("http://localhost:3000/login", {
