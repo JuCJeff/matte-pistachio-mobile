@@ -4,7 +4,7 @@ import { PaymentPage } from '../Payment/payment';
 import { LoginPage } from '../Login/login';
 import { PersonalCharityPage } from '../PersonalCharity/personalCharity';
 import { Chart } from 'chart.js';
-
+import { AuthService } from "../../auth.service";
 
 
 @Component({
@@ -20,7 +20,7 @@ export class ProfilePage {
   @ViewChild('pieCanvas') pieCanvas;
   pieChart: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public authService: AuthService) {
 
   }
 
@@ -61,6 +61,7 @@ export class ProfilePage {
   }
 
   navigateToLogin() {
+    this.authService.logout();
     this.navCtrl.setRoot(LoginPage);
   }
 
