@@ -15,6 +15,7 @@ import { AuthService } from '../auth.service';
 import { CharityListPage } from '../pages/CharityList/charityList';
 import { CharityProfilePage } from '../pages/CharityProfile/charityProfile';
 import { PersonalCharityPage } from '../pages/PersonalCharity/personalCharity';
+import { TabsPage } from '../pages/Tabs/tabs';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { PersonalCharityPage } from '../pages/PersonalCharity/personalCharity';
     PaymentPage,
     CharityProfilePage,
     CharityListPage,
-    PersonalCharityPage
+    PersonalCharityPage,
+    TabsPage
   ],
   imports: [
     BrowserModule,
@@ -43,7 +45,8 @@ import { PersonalCharityPage } from '../pages/PersonalCharity/personalCharity';
     PaymentPage,
     CharityProfilePage,
     CharityListPage,
-    PersonalCharityPage
+    PersonalCharityPage,
+    TabsPage
   ],
   providers: [
     StatusBar,

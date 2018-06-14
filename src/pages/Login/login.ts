@@ -1,7 +1,8 @@
 import { Component, Injectable } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import { ProfilePage } from '../Profile/profile';
 import { AuthService } from "../../auth.service";
+import { Http } from '@angular/http';
+import { TabsPage } from '../Tabs/tabs';
 // import { User } from '../../Models/user';
 // import { TabsPage } from '../Tabs/tabs';
 
@@ -10,14 +11,14 @@ import { AuthService } from "../../auth.service";
     templateUrl: 'login.html'
 })
 
-@Injectable ()
+@Injectable()
 
 export class LoginPage {
 
     public username: string;
     public password: string;
 
-    constructor(public navCtrl: NavController, public authService: AuthService) {
+    constructor(public navCtrl: NavController, public authService: AuthService, public http: Http) {
 
     }
 
@@ -25,19 +26,15 @@ export class LoginPage {
         console.log("ionViewDidLoad LoginPage");
     }
 
-    navigateToProfile() {
-        this.navCtrl.push(ProfilePage);
-    }
-
     login() {
 
         let callback = (err) => {
-            if(err) {
+            if (err) {
                 console.log("Cannot log in");
                 return;
             }
 
-            this.navCtrl.push(ProfilePage);
+            this.navCtrl.push(TabsPage);
         }
 
         this.authService.login(this.username, this.password, callback);
@@ -53,12 +50,6 @@ export class LoginPage {
     //     user.email = "zma67@wisc.edu";
     //     user.firstname = "Jeff";
     //     user.lastname = "Ma";
-
-    //     this.navCtrl.push(TabsPage, {
-    //       user: user,
-    //       username: this.username,
-    //       password: this.password
-    //     });
 
     //   }
 

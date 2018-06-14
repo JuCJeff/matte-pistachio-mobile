@@ -5,7 +5,7 @@ import { LoginPage } from '../Login/login';
 //For fetching data from 3rd party APIs
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
-import { ProfilePage } from '../Profile/profile';
+import { TabsPage } from '../Tabs/tabs';
 
 @Component({
   selector: 'page-home',
@@ -29,7 +29,7 @@ export class HomePage {
 
   constructor(public navCtrl: NavController, public http: Http, private app: App) {
       if(localStorage.getItem("TOKEN")) {
-        this.app.getRootNav().setRoot(ProfilePage);
+        this.app.getRootNav().setRoot(TabsPage);
       }
   }
 
