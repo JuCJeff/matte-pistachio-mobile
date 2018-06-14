@@ -6,7 +6,6 @@ import { LoginPage } from '../Login/login';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { TabsPage } from '../Tabs/tabs';
-import { ProfilePage } from '../Profile/profile';
 import { StripeJavaScriptPage } from '../stripe-java-script/stripe-java-script';
 import { StripeNativePage } from '../stripe-native/stripe-native';
 
