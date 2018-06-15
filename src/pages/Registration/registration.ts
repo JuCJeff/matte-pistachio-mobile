@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, AlertController } from 'ionic-angular';
 import { LoginPage } from '../Login/login';
 
 @Component({
@@ -8,11 +8,20 @@ import { LoginPage } from '../Login/login';
 })
 export class RegistrationPage {
 
-  constructor(public navCtrl: NavController) {
+  constructor(public navCtrl: NavController, public alertCtrl: AlertController) {
 
   }
 
   navigateToLogin() {
+
+    //Added alerts
+    const alert = this.alertCtrl.create({
+      title: 'You are in!',
+      subTitle: 'Welcome to the charity hero family! Please login to start helping the world!',
+      buttons: ['OK']
+    });
+    alert.present();
+
     this.navCtrl.push(LoginPage);
   }
 
