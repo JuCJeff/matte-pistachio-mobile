@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, App } from 'ionic-angular';
 import { PaymentPage } from '../Payment/payment';
 import { LoginPage } from '../Login/login';
 import { PersonalCharityPage } from '../PersonalCharity/personalCharity';
@@ -20,7 +20,7 @@ export class ProfilePage {
   @ViewChild('pieCanvas') pieCanvas;
   pieChart: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public authService: AuthService) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public authService: AuthService, private app: App) {
 
   }
 
@@ -79,7 +79,7 @@ export class ProfilePage {
 
   navigateToLogin() {
     this.authService.logout();
-    this.navCtrl.setRoot(LoginPage);
+    this.app.getRootNav().setRoot(LoginPage)
   }
 
 }

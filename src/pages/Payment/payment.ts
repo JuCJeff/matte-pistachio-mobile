@@ -11,7 +11,8 @@ declare var Stripe;
 export class PaymentPage {
 
   stripe = Stripe('pk_test_jDlfN81b4iL42VOZJrfXRI4F');
-  card: any
+  card: any;
+  public amount: number;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http, public alertCtrl: AlertController) {
   }
@@ -58,8 +59,12 @@ export class PaymentPage {
 
       this.stripe.createToken(this.card)
         .then((response) => {
+          //var amount = this.amount;
+          //var token = response.token;
           this.http
-          .post("http://localhost:3000/stripepayment", response.token)
+          .post("http://localhost:3000/stripepayment", {
+          id: response.token.id, amount: this.amount
+          })
 
         .subscribe(
           result => {
