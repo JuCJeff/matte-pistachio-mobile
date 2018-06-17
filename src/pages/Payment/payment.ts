@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, AlertController } from 'ionic-angular';
 import { Http } from "@angular/http";
 
 declare var Stripe;
@@ -13,7 +13,7 @@ export class PaymentPage {
   stripe = Stripe('pk_test_jDlfN81b4iL42VOZJrfXRI4F');
   card: any
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http, public alertCtrl: AlertController) {
   }
 
   ionViewDidLoad(callback: Function) {
@@ -107,6 +107,15 @@ export class PaymentPage {
             callback(error);
         }
     );*/
+  }
+
+  showAlert() {
+    const alert = this.alertCtrl.create({
+      title: 'Donation Successful!',
+      subTitle: 'Thank you for your support!',
+      buttons: ['OK']
+    });
+    alert.present();
   }
 
 }
