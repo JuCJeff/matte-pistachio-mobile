@@ -29,7 +29,6 @@ export class RegistrationPage {
   }
 
   navigateToLogin() {
-
     //Added alerts
     const alert = this.alertCtrl.create({
       title: 'You are in!',
@@ -37,16 +36,24 @@ export class RegistrationPage {
       buttons: ['OK']
     });
     alert.present();
-
     this.navCtrl.push(LoginPage);
   }
 
-  register() {
+  matchPassword() {
+    if (this.confirmpassword != this.password) {
+      alert('the passwords do not match');
+    }
+    else {
+      this.register(this.storage);
+      this.navigateToLogin();
+    }
+  }
+
+  register(storage: Storage) {
     this.http
       .post("http://localhost:3000/registration", {
         username: this.username,
         password: this.password,
-        confirmpassword: this.confirmpassword,
         email: this.email,
         firstname: this.firstname,
         lastname: this.lastname,
@@ -57,19 +64,11 @@ export class RegistrationPage {
           let token = result.json().token;
           this.storage.set('jwt', token);
           this.storage.set('jwtFull', result);
-          this.navigateToLogin();
+          this.matchPassword();
         },
         error => {
           console.log(error);
         }
       );
-  }
-  matchPassword() {
-    if (this.password != this.confirmpassword) {
-      alert('Passwords dont match');
-    }
-    else{
-      this.navigateToLogin();
-    }
   }
 }
