@@ -33,10 +33,8 @@ export class LoginPage {
                 console.log("Cannot log in");
                 return;
             }
-
             this.navCtrl.push(TabsPage);
         }
-
         this.authService.login(this.username, this.password, callback);
     }
 

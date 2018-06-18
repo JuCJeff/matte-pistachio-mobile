@@ -17,7 +17,6 @@ export class AuthService {
                     var responseJson = result.json();
                     callback(null, responseJson);
                 },
-
                 error => {
                     callback(error);
                 }
@@ -38,12 +37,12 @@ export class AuthService {
                     localStorage.setItem("TOKEN", responseJson.token);
                     callback();
                 },
-
                 error => {
                     callback(error);
                 }
             );
     }
+    
 
     logout() {
         localStorage.clear();
