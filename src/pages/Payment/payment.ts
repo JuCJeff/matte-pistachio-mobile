@@ -59,11 +59,9 @@ export class PaymentPage {
 
       this.stripe.createToken(this.card)
         .then((response) => {
-          //var amount = this.amount;
-          //var token = response.token;
           this.http
           .post("http://localhost:3000/stripepayment", {
-          id: response.token.id, amount: this.amount
+          id: response.token.id, amount: this.amount*100
           })
 
         .subscribe(
