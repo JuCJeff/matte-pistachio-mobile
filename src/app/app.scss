@@ -19,10 +19,21 @@
 .toolbar-background-md {
     background-color: #ff3e00;
   }
-.toolbar-title-md{
+
+.toolbar-background-ios {
+    background-color: #ff3e00;
+}
+  
+.toolbar-title-md {
     color:white;
     text-align: center;
 }
+
+.toolbar-title-ios {
+    color:white;
+    text-align: center;
+}
+
 ion-header ion-icon.back-button-icon.icon {
     color: white;
 }
