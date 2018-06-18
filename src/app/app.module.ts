@@ -20,6 +20,7 @@ import { TabsPage } from '../pages/Tabs/tabs';
 import { StripeJavaScriptPage } from '../pages/stripe-java-script/stripe-java-script';
 import { StripeNativePage } from '../pages/stripe-native/stripe-native';
 import { Stripe } from '@ionic-native/stripe';
+import { IonicStorageModule } from '@ionic/storage';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { Stripe } from '@ionic-native/stripe';
   imports: [
     BrowserModule,
     HttpModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
