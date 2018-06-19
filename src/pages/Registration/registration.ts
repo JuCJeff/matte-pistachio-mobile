@@ -28,24 +28,23 @@ export class RegistrationPage {
 
   }
 
-  navigateToLogin() {
-    //Added alerts
-    const alert = this.alertCtrl.create({
-      title: 'You are in!',
-      subTitle: 'Welcome to the charity hero family! Please login to start helping the world!',
-      buttons: ['OK']
-    });
-    alert.present();
-    this.navCtrl.push(LoginPage);
-  }
 
-  matchPassword() {
+  // added alert message after registering
+  navigateToLogin() {
     if (this.confirmpassword != this.password) {
       alert('the passwords do not match');
     }
     else {
       this.register(this.storage);
-      this.navigateToLogin();
+      //Added alerts
+      const alert = this.alertCtrl.create({
+        title: 'Registration Successful!',
+        subTitle: 'Please login to start helping the world!',
+        buttons: ['OK']
+      });
+      alert.present();
+      this.navCtrl.push(LoginPage);
+
     }
   }
 
@@ -64,7 +63,7 @@ export class RegistrationPage {
           let token = result.json().token;
           this.storage.set('jwt', token);
           this.storage.set('jwtFull', result);
-          this.matchPassword();
+          this.navigateToLogin();
         },
         error => {
           console.log(error);
