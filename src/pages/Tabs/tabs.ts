@@ -12,7 +12,7 @@ export class TabsPage {
   profilePage = ProfilePage;
   charityListPage = CharityListPage;
   personalCharityPage = PersonalCharityPage;
-
+  
   loginData: any = null;
 
   constructor(public navParams: NavParams) {

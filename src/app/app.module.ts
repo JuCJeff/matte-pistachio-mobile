@@ -57,6 +57,7 @@ import { IonicStorageModule } from '@ionic/storage';
     TabsPage,
     StripeJavaScriptPage,
     StripeNativePage
+    
   ],
   providers: [
     StatusBar,
