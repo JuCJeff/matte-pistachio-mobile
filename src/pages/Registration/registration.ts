@@ -39,7 +39,7 @@ export class RegistrationPage {
   }
 
   //Show toast
-  showToast(position: string) {
+  showToast1(position: string) {
     let toast = this.toastCtrl.create({
       message: 'Confirm password and password needs to match.',
       duration: 2000,
@@ -49,32 +49,26 @@ export class RegistrationPage {
     toast.present(toast);
   }
 
-  // navigateToLogin() {
-  //   if (this.confirmpassword != this.password) {
-  //     this.showToast('top');
-  //   }
-  //   else {
+  showToast2(position: string) {
+    let toast = this.toastCtrl.create({
+      message: 'The username already exists in the database. Please try another username.',
+      duration: 4000,
+      position: position
+    });
 
-  //     //Added alerts
-  //     const alert = this.alertCtrl.create({
-  //       title: 'Registration Successful!',
-  //       subTitle: 'Please login to start helping the world!',
-  //       buttons: ['OK']
+    toast.present(toast);
+  }
 
-  //     });
-  //     alert.present();
-  //     this.navCtrl.push(LoginPage);
-  //   }
-  // }
-
+  //Registration function
   register(storage: Storage) {
 
     //Check if passwords match first before posting
     if (this.confirmpassword != this.password) {
-      this.showToast('top');
-    } else {
+      this.showToast1('top');
+    } 
+    else {
       this.http
-        .post("http://localhost:3000/registration", {
+        .post("https://localhost:3000/registration", {
           username: this.username,
           password: this.password,
           email: this.email,
@@ -98,7 +92,7 @@ export class RegistrationPage {
             this.navCtrl.push(LoginPage);
           },
           error => {
-            console.log(error);
+            console.log(this.showToast2('top'));
           }
         );
     }
