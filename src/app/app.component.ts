@@ -7,7 +7,7 @@ import { HomePage } from '../pages/home/home';
 import { ProfilePage } from '../pages/Profile/profile';
 import { CharityListPage } from '../pages/CharityList/charityList';
 import { TabsPage } from '../pages/Tabs/tabs';
-
+import { App, MenuController } from 'ionic-angular';
 
 
 @Component({
@@ -25,16 +25,6 @@ export class MyApp {
       statusBar.styleDefault();
       splashScreen.hide();
     });
-  }
-  openPage(page) {
-    switch (page) {
-      case "ProfilePage":
-        this.nav.push(ProfilePage);
-        return;
-      case "CharityListPage":
-        this.nav.push(CharityListPage);
-        return;
-    }
   }
 }
 

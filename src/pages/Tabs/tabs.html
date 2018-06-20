@@ -1,5 +1,11 @@
+<ion-buttons start>
+    <button ion-button menuToggle icon-only>
+        <ion-icon name='menu'> </ion-icon>
+    </button>
+</ion-buttons>
+
 <ion-tabs class="tabs-icon-text">
     <ion-tab tabIcon="contact" tabTitle="Profile" [root]="profilePage" [rootParams]="loginData"></ion-tab>
-    <ion-tab tabIcon="heart" tabTitle="Browse" [root]="charityListPage" [rootParams]="loginData"></ion-tab>
-    <ion-tab tabIcon="stats" tabTitle="My Charities" [root]="personalCharityPage" [rootParams]="loginData"></ion-tab>
+    <ion-tab tabIcon="planet" tabTitle="Browse" [root]="charityListPage" [rootParams]="loginData"></ion-tab>
+    <ion-tab tabIcon="heart" tabTitle="My Charities" [root]="personalCharityPage" [rootParams]="loginData"></ion-tab>
 </ion-tabs>

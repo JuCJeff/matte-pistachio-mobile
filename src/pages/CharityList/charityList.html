@@ -1,19 +1,16 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Charity List Pge
+      Browse Charities
     </ion-title>
   </ion-navbar>
 </ion-header>
 
-
 <ion-content padding>
-  
   <button ion-item *ngFor="let charity of charities" (click)="navigateToCharity(charity)">
     <ion-thumbnail item-start small>
       <img src="{{charity.img}}">
     </ion-thumbnail>
-    <p>{{ charity.name }}</p>
+    <p> {{ charity.name }} </p>
   </button>
-
 </ion-content>
