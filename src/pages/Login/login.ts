@@ -3,6 +3,7 @@ import { NavController } from 'ionic-angular';
 import { AuthService } from "../../auth.service";
 import { Http } from '@angular/http';
 import { TabsPage } from '../Tabs/tabs';
+import { LottieAnimationViewModule } from 'ng-lottie';
 // import { User } from '../../Models/user';
 // import { TabsPage } from '../Tabs/tabs';
 
@@ -19,7 +20,7 @@ export class LoginPage {
     public password: string;
 
     constructor(public navCtrl: NavController, public authService: AuthService, public http: Http) {
-
+        LottieAnimationViewModule.forRoot();
     }
 
     ionViewDidLoad() {
