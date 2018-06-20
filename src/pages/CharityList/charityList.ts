@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Charity } from '../../Models/charity';
 import { CharityProfilePage } from '../CharityProfile/charityProfile';
 import { Http } from '@angular/http';
+import { AuthService } from "../../auth.service";
 
 @IonicPage()
 @Component({
@@ -13,8 +14,9 @@ export class CharityListPage {
 
   //For item lists
   public charities: Array<Charity> = [];
+  private token: string;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http, public authService: AuthService) {
 
     /*
     //Charities instances
@@ -92,12 +94,15 @@ export class CharityListPage {
 
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad CharityListPage');
-    this.http.get("http://localhost:3000/charity").subscribe((result => {var response = result.json();
-      this.charities = response;
-      }
-    ));
+  ionViewWillEnter() {
+    this.token = localStorage.getItem("TOKEN");
+    this.authService.getMe((err) => {
+      console.log('ionViewDidLoad CharityListPage');
+      this.http.get(`http://localhost:3000/charity?jwt=${localStorage.getItem("TOKEN")}`).subscribe((result => {var response = result.json();
+        this.charities = response;
+        }
+      ));
+    });
   }
 
   navigateToCharity(charity: Charity) {

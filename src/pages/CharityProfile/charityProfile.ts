@@ -3,6 +3,7 @@ import { NavController, NavParams } from 'ionic-angular';
 import { Charity } from '../../Models/charity'
 import { Http } from '@angular/http';
 import { PersonalCharityPage } from '../PersonalCharity/personalCharity';
+import { PaymentPage } from '../Payment/payment';
 
 @Component({
   selector: 'page-charityProfile',
@@ -41,6 +42,10 @@ export class CharityProfilePage {
       //localStorage.setItem("favorited", 'false');
       this.http.patch("http://localhost:3000/notmycharity/" + this.charity.id, {}).subscribe((result => {}));
     }
+  }
+
+  navigateToPayment() {
+    this.navCtrl.push(PaymentPage);
   }
 
 }

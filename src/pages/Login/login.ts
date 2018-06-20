@@ -1,8 +1,9 @@
 import { Component, Injectable } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, ToastController } from 'ionic-angular';
 import { AuthService } from "../../auth.service";
 import { Http } from '@angular/http';
 import { TabsPage } from '../Tabs/tabs';
+import { LottieAnimationViewModule } from 'ng-lottie';
 // import { User } from '../../Models/user';
 // import { TabsPage } from '../Tabs/tabs';
 
@@ -18,12 +19,23 @@ export class LoginPage {
     public username: string;
     public password: string;
 
-    constructor(public navCtrl: NavController, public authService: AuthService, public http: Http) {
-
+    constructor(public navCtrl: NavController, public authService: AuthService, public http: Http, public toastCtrl: ToastController) {
+        LottieAnimationViewModule.forRoot();
     }
 
     ionViewDidLoad() {
         console.log("ionViewDidLoad LoginPage");
+    }
+
+    //Show toast
+    showToast1(position: string) {
+        let toast = this.toastCtrl.create({
+            message: 'Username and password do not match. Please try again.',
+            duration: 4000,
+            position: position
+        });
+
+        toast.present(toast);
     }
 
     login() {
@@ -31,6 +43,7 @@ export class LoginPage {
         let callback = (err) => {
             if (err) {
                 console.log("Cannot log in");
+                console.log(this.showToast1('top'));
                 return;
             }
 

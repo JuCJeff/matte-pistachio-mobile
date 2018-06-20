@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams, AlertController } from 'ionic-angular';
 import { Http } from "@angular/http";
+import { AuthService } from "../../auth.service";
 
 declare var Stripe;
 
@@ -13,12 +14,19 @@ export class PaymentPage {
   stripe = Stripe('pk_test_jDlfN81b4iL42VOZJrfXRI4F');
   card: any;
   public amount: number;
+  private token: string;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http, public alertCtrl: AlertController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http, public alertCtrl: AlertController, public authService: AuthService) {
   }
 
   ionViewDidLoad(callback: Function) {
-    this.setupStripe(callback);
+
+    this.token = localStorage.getItem("TOKEN");//this.navParams.get("token");
+    console.log("payment name", this.token);
+    this.authService.getMe((err) => {
+      this.setupStripe(callback);
+    });
+
   }
 
   setupStripe(callback: Function) {
@@ -60,24 +68,24 @@ export class PaymentPage {
       this.stripe.createToken(this.card)
         .then((response) => {
           this.http
-          .post("http://localhost:3000/stripepayment", {
-          id: response.token.id, amount: this.amount*100
-          })
+            .post(`http://localhost:3000/stripepayment?jwt=${localStorage.getItem("TOKEN")}`, {
+              id: response.token.id, amount: this.amount * 100
+            })
 
-        .subscribe(
-          result => {
-            var responseJson = result.json();
+            .subscribe(
+              result => {
+                var responseJson = result.json();
 
-            //Store the charge in local storage
-            localStorage.setItem("charge", responseJson.charge);
-            //callback();
-          },
+                //Store the charge in local storage
+                localStorage.setItem("charge", responseJson.charge);
+                //callback();
+              },
 
-          error => {
-            //callback(error);
-          }
-        );
-        console.log(response.token);
+              error => {
+                //callback(error);
+              }
+            );
+          console.log(response.token);
         })
         .catch((error) => {
           console.error(error)
