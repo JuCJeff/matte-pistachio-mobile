@@ -9,7 +9,7 @@
 <ion-content padding>
 
   <!-- <ion-list inset> -->
-    <button ion-item *ngFor="let charity of charities" (click)="navigateToCharity(charity)">
+    <button ion-item *ngFor="let charity of mycharities" (click)="navigateToCharity(charity)">
       <ion-thumbnail item-start small>
         <img src="{{charity.img}}">
       </ion-thumbnail>

@@ -6,4 +6,5 @@ export class Charity{
     url: string;
     bank: string;
     accountnumber: string;
+    favorited: boolean;
 }

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Charity } from '../../Models/charity';
 import { CharityProfilePage } from '../CharityProfile/charityProfile';
+import { Http } from '@angular/http';
 
 @IonicPage()
 @Component({
@@ -13,8 +14,9 @@ export class CharityListPage {
   //For item lists
   public charities: Array<Charity> = [];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http) {
 
+    /*
     //Charities instances
     var charity1 = new Charity();
     charity1.id = 1;
@@ -86,11 +88,16 @@ export class CharityListPage {
     this.charities.push(charity5);
     this.charities.push(charity6);
     this.charities.push(charity7);
+    */
 
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad CharityListPage');
+    this.http.get("http://localhost:3000/charity").subscribe((result => {var response = result.json();
+      this.charities = response;
+      }
+    ));
   }
 
   navigateToCharity(charity: Charity) {

@@ -37,7 +37,11 @@
 
     <div class="buttons">
         <button ion-button icon-start color="dark" round outline>Donate Now</button>
-        <button ion-button icon-start color="dark" round outline>Add to List</button>
+        <!--button ion-button icon-start color="dark" round outline>Add to List</button-->
+        <ion-item>
+            <ion-label>Add to My Charities</ion-label>
+            <ion-toggle [checked]="favorited" (ionChange)="addMyCharities()"></ion-toggle>
+        </ion-item>
     </div>
 
     <!--The fab button-->

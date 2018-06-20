@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Charity } from '../../Models/charity';
 import { CharityProfilePage } from '../CharityProfile/charityProfile';
+import { Http } from '@angular/http';
 
 @IonicPage()
 @Component({
@@ -12,11 +13,12 @@ import { CharityProfilePage } from '../CharityProfile/charityProfile';
 export class PersonalCharityPage {
 
   //For item lists
-  public charities: Array<Charity> = [];
+  public mycharities: Array<Charity> = [];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http) {
 
     //Charities instances
+    /*
     var charity1 = new Charity();
     charity1.id = 1;
     charity1.name = "ACCESS College Foundation";
@@ -57,11 +59,20 @@ export class PersonalCharityPage {
     this.charities.push(charity2);
     this.charities.push(charity3);
     this.charities.push(charity4);
+    */
+    //this.charities = this.getCharities();
 
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad PersonalCharityPage');
+  }
+
+  ionViewWillEnter() {
+    this.http.get("http://localhost:3000/mycharity").subscribe((result => {var response = result.json();
+      this.mycharities = response;
+      }
+    ));
   }
 
   navigateToCharity(charity: Charity) {
