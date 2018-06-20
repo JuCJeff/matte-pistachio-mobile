@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, AlertController, NavParams } from 'ionic-angular';
+import { NavController, AlertController, NavParams, ToastController } from 'ionic-angular';
 import { LoginPage } from '../Login/login';
 import { Http } from '@angular/http';
 import { Storage } from '@ionic/storage';
@@ -26,6 +26,7 @@ export class RegistrationPage {
     public navParams: NavParams,
     public http: Http,
     private storage: Storage,
+    public toastCtrl: ToastController
   ) {
     //Lottie files
     LottieAnimationViewModule.forRoot();
@@ -34,49 +35,72 @@ export class RegistrationPage {
       autoplay: true,
       loopt: true
     }
+
   }
 
+  //Show toast
+  showToast(position: string) {
+    let toast = this.toastCtrl.create({
+      message: 'Confirm password and password needs to match.',
+      duration: 2000,
+      position: position
+    });
 
-  // added alert message after registering
-  navigateToLogin() {
-    if (this.confirmpassword != this.password) {
-      alert('the passwords do not match');
-    }
-    else {
-      this.register(this.storage);
-
-      //Added alerts
-      const alert = this.alertCtrl.create({
-        title: 'Registration Successful!',
-        subTitle: 'Please login to start helping the world!',
-        buttons: ['OK']
-        
-      });
-      alert.present();
-      this.navCtrl.push(LoginPage);
-    }
+    toast.present(toast);
   }
+
+  // navigateToLogin() {
+  //   if (this.confirmpassword != this.password) {
+  //     this.showToast('top');
+  //   }
+  //   else {
+
+  //     //Added alerts
+  //     const alert = this.alertCtrl.create({
+  //       title: 'Registration Successful!',
+  //       subTitle: 'Please login to start helping the world!',
+  //       buttons: ['OK']
+
+  //     });
+  //     alert.present();
+  //     this.navCtrl.push(LoginPage);
+  //   }
+  // }
 
   register(storage: Storage) {
-    this.http
-      .post("http://localhost:3000/registration", {
-        username: this.username,
-        password: this.password,
-        email: this.email,
-        firstname: this.firstname,
-        lastname: this.lastname,
-        phonenumber: this.phonenumber
-      })
-      .subscribe(
-        result => {
-          let token = result.json().token;
-          this.storage.set('jwt', token);
-          this.storage.set('jwtFull', result);
-          this.navigateToLogin();
-        },
-        error => {
-          console.log(error);
-        }
-      );
+
+    //Check if passwords match first before posting
+    if (this.confirmpassword != this.password) {
+      this.showToast('top');
+    } else {
+      this.http
+        .post("http://localhost:3000/registration", {
+          username: this.username,
+          password: this.password,
+          email: this.email,
+          firstname: this.firstname,
+          lastname: this.lastname,
+          phonenumber: this.phonenumber
+        })
+        .subscribe(
+          result => {
+            let token = result.json().token;
+            this.storage.set('jwt', token);
+            this.storage.set('jwtFull', result);
+            //Added alerts
+            const alert = this.alertCtrl.create({
+              title: 'Registration Successful!',
+              subTitle: 'Please login to start helping the world!',
+              buttons: ['OK']
+            });
+            alert.present();
+            //Navigate to login page
+            this.navCtrl.push(LoginPage);
+          },
+          error => {
+            console.log(error);
+          }
+        );
+    }
   }
 }
