@@ -1,8 +1,11 @@
 <ion-header>
     <ion-navbar>
-        <ion-title>
-            My Profile
-        </ion-title>
+        <button ion-button icon-only menuToggle left>
+            <ion-icon name="menu"> </ion-icon>
+        </button>
+        <!-- <ion-buttons start>
+        </ion-buttons> -->
+        <ion-title> PROFILE PAGE </ion-title>
     </ion-navbar>
 </ion-header>
 
@@ -10,11 +13,11 @@
     <!--The user profolio generals-->
     <ion-icon name="logo-octocat" item-end large id="octocat"></ion-icon>
     <br/>
-    <p class="welcome">Welcome {{ username }}!</p>
+    <p class="welcome">Welcome {{username}}!</p>
 
     <!--Customer information-->
     <img src="assets/imgs/profile_pic.jpeg" id="profile">
-    <p id="username">{{ username }}</p>
+    <p id="username">{{username}}</p>
 
     <!--User current status revealed-->
     <ion-grid>

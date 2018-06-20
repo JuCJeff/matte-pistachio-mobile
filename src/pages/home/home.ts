@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component} from '@angular/core';
 import { NavController, App } from 'ionic-angular';
 import { RegistrationPage } from '../Registration/registration';
 import { LoginPage } from '../Login/login';
@@ -8,6 +8,7 @@ import 'rxjs/add/operator/map';
 import { TabsPage } from '../Tabs/tabs';
 import { StripeJavaScriptPage } from '../stripe-java-script/stripe-java-script';
 import { StripeNativePage } from '../stripe-native/stripe-native';
+import { LottieAnimationViewModule } from 'ng-lottie';
 
 @Component({
   selector: 'page-home',
@@ -29,10 +30,22 @@ export class HomePage {
     }
   ];
 
+  //Lottie files
+  lottieConfig: any;
+
   constructor(public navCtrl: NavController, public http: Http, private app: App) {
-      if(localStorage.getItem("TOKEN")) {
-        this.app.getRootNav().setRoot(TabsPage);
-      }
+
+    //Lottie files
+    LottieAnimationViewModule.forRoot();
+    this.lottieConfig = {
+      path: 'assets/json/like.json',
+      autoplay: true,
+      loopt: true
+    }
+
+    if (localStorage.getItem("TOKEN")) {
+      this.app.getRootNav().setRoot(TabsPage);
+    }
   }
 
   navigateToRegistration() {
@@ -43,11 +56,11 @@ export class HomePage {
     this.navCtrl.setRoot(LoginPage);
   }
 
-  openJavaScript(){
+  openJavaScript() {
     this.navCtrl.push(StripeJavaScriptPage);
   }
- 
-  openNative(){
+
+  openNative() {
     this.navCtrl.push(StripeNativePage);
   }
 

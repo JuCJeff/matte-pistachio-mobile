@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { ErrorHandler, NgModule } from '@angular/core';
+import { Component, ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
@@ -21,6 +21,8 @@ import { StripeJavaScriptPage } from '../pages/stripe-java-script/stripe-java-sc
 import { StripeNativePage } from '../pages/stripe-native/stripe-native';
 import { Stripe } from '@ionic-native/stripe';
 import { IonicStorageModule } from '@ionic/storage';
+import { LottieAnimationViewModule } from 'ng-lottie';
+import { MenuPage } from '../pages/menu/menu';
 
 @NgModule({
   declarations: [
@@ -35,13 +37,16 @@ import { IonicStorageModule } from '@ionic/storage';
     PersonalCharityPage,
     TabsPage,
     StripeJavaScriptPage,
-    StripeNativePage
+    StripeNativePage,
+    MenuPage
   ],
+  
   imports: [
     BrowserModule,
     HttpModule,
     IonicModule.forRoot(MyApp),
-    IonicStorageModule.forRoot()
+    IonicStorageModule.forRoot(),
+    LottieAnimationViewModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -56,7 +61,8 @@ import { IonicStorageModule } from '@ionic/storage';
     PersonalCharityPage,
     TabsPage,
     StripeJavaScriptPage,
-    StripeNativePage
+    StripeNativePage,
+    MenuPage
     
   ],
   providers: [

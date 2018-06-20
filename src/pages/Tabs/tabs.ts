@@ -1,33 +1,32 @@
 import { Component } from '@angular/core';
-import { Nav, NavParams } from 'ionic-angular';
+import { NavParams, NavController, App } from 'ionic-angular';
 import { ProfilePage } from '../Profile/profile';
 import { CharityListPage } from '../CharityList/charityList';
 import { PersonalCharityPage } from '../PersonalCharity/personalCharity';
+import { MenuPage } from '../menu/menu';
+import { LoginPage } from '../Login/login';
+import { PaymentPage } from '../Payment/payment';
+import { AuthService } from "../../auth.service";
 
 @Component({
   selector: 'page-registration',
   templateUrl: 'tabs.html'
 })
+
 export class TabsPage {
-  nav: any;
+  navCtrl: any;
   profilePage = ProfilePage;
   charityListPage = CharityListPage;
   personalCharityPage = PersonalCharityPage;
-  
+  menuPage = MenuPage;
+
   loginData: any = null;
 
   constructor(public navParams: NavParams) {
       this.loginData = this.navParams.data;
   }
-
-  openPage(page) {
-    switch (page) {
-      case "ProfilePage":
-        this.nav.push(ProfilePage);
-        return;
-      case "CharityListPage":
-        this.nav.push(CharityListPage);
-        return;
-    }
+  navigateToPayment() {
+    this.navCtrl.push(PaymentPage);
   }
+
 }

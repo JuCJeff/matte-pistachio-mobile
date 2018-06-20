@@ -1,11 +1,20 @@
-<ion-buttons start>
-    <button ion-button menuToggle icon-only>
-        <ion-icon name='menu'> </ion-icon>
-    </button>
-</ion-buttons>
+<ion-menu [content]="mycontent">
+    <ion-content padding>
+        <ion-list>
+            <button menuClose ion-item (click)="openPage(profilePage)"> profile page </button>
+            <button menuClose ion-item (click)="openPage(charityListPage)"> list of charities</button>
+            <button menuClose ion-item (click)="openPage(paymentPage)"> payments </button>
+            <button menuClose ion-item (click)="openPage(personalCharityPage)"> personal charities </button>
+        </ion-list>
+        <ion-list>
+            <button ion-button icon-start color="dark" round outline (click)="navigateToLogin()">Log out</button>
+        </ion-list>
+    </ion-content>
+</ion-menu>
 
 <ion-tabs class="tabs-icon-text">
+    <ion-nav #mycontent [root]="rootPage"></ion-nav>
     <ion-tab tabIcon="contact" tabTitle="Profile" [root]="profilePage" [rootParams]="loginData"></ion-tab>
-    <ion-tab tabIcon="planet" tabTitle="Browse" [root]="charityListPage" [rootParams]="loginData"></ion-tab>
-    <ion-tab tabIcon="heart" tabTitle="My Charities" [root]="personalCharityPage" [rootParams]="loginData"></ion-tab>
+    <ion-tab tabIcon="heart" tabTitle="Charities" [root]="charityListPage" [rootParams]="loginData"></ion-tab>
+    <ion-tab tabIcon="stats" tabTitle="My Charities" [root]="personalCharityPage" [rootParams]="loginData"></ion-tab>
 </ion-tabs>
