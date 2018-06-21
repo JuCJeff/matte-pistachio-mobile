@@ -98,7 +98,7 @@ export class CharityListPage {
     this.token = localStorage.getItem("TOKEN");
     this.authService.getMe((err) => {
       console.log('ionViewDidLoad CharityListPage');
-      this.http.get(`http://localhost:3000/charity?jwt=${localStorage.getItem("TOKEN")}`).subscribe((result => {var response = result.json();
+      this.http.get(`https://matte-pistachio-api.herokuapp.com/charity?jwt=${localStorage.getItem("TOKEN")}`).subscribe((result => {var response = result.json();
         this.charities = response;
         }
       ));

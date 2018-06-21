@@ -33,8 +33,18 @@ page-charityProfile {
         border-radius: 0.5em;
     }
 
-    ion-toggle {
-        float: center;
-    }
+   div.input-wrapper {
+       font-size: 0.75em;
+       text-align: center;
+       color: #ff3e00;
+       font-weight: bolder;
+
+   }
+
+   ion-item.underline {
+       margin-bottom: 1.5em;
+   }
+
+
 
 }

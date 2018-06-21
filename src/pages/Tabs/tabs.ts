@@ -5,7 +5,7 @@ import { CharityListPage } from '../CharityList/charityList';
 import { PersonalCharityPage } from '../PersonalCharity/personalCharity';
 
 @Component({
-  selector: 'page-registration',
+  selector: 'page-tabs',
   templateUrl: 'tabs.html'
 })
 export class TabsPage {

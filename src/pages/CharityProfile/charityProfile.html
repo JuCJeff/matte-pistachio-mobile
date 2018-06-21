@@ -30,18 +30,20 @@
 
     <!--Charity Description-->
     <p>Welcome to {{charity.name}}.</p>
+
     <a href="{{charity.url}}" target="_blank"> {{charity.url}} </a>
     <p id="mission">{{charity.mission}}</p>
+
+    <ion-item class="underline">
+        <ion-label>Add to My Charities</ion-label>
+        <ion-toggle color="main" [checked]="favorited" (ionChange)="addMyCharities()" id="toggle"></ion-toggle>
+    </ion-item>
 
     <p class="notification">Thank you for being a charity hero!</p>
 
     <div class="buttons">
-        <button ion-button icon-start color="dark" round outline>Donate Now</button>
+        <!--button ion-button icon-start color="dark" round outline>Donate Now</button>-->
         <!--button ion-button icon-start color="dark" round outline>Add to List</button-->
-        <ion-item>
-            <ion-label>Add to My Charities</ion-label>
-            <ion-toggle [checked]="favorited" (ionChange)="addMyCharities()"></ion-toggle>
-        </ion-item>
         <button ion-button icon-start color="dark" round outline (click)="navigateToPayment()">Donate Now</button>
 
     </div>

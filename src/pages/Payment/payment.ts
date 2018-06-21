@@ -68,7 +68,8 @@ export class PaymentPage {
       this.stripe.createToken(this.card)
         .then((response) => {
           this.http
-            .post(`http://localhost:3000/stripepayment?jwt=${localStorage.getItem("TOKEN")}`, {
+            // http://localhost:3000
+            .post(`https://matte-pistachio-api.herokuapp.com/stripepayment?jwt=${localStorage.getItem("TOKEN")}`, {
               id: response.token.id, amount: this.amount * 100
             })
 
