@@ -19,6 +19,9 @@ export class ProfilePage {
   public donations: Array<any> = [];
   public charities: Array<any> = [];
   public amounts: Array<any> = [0, 0, 0, 0, 0, 0, 0];
+  public total: number;
+  public maximum: number;
+  public mycharities: number = 0;
 
   private token: string;
 
@@ -84,6 +87,9 @@ export class ProfilePage {
       this.http.get(`https://matte-pistachio-api.herokuapp.com/donation?jwt=${localStorage.getItem("TOKEN")}`).subscribe((result => {var response = result.json();
         this.donations = response;
         this.createAmountList();
+        this.total = this.sum();
+        this.mycharities = this.charitiessupported();
+        this.maximum = Math.max(...this.amounts);
         this.pieChart = new Chart(this.pieCanvas.nativeElement, {
 
           type: 'pie',
@@ -116,7 +122,6 @@ export class ProfilePage {
       this.username = user.username;
 
     });
-
 
   }
 
@@ -176,8 +181,24 @@ export class ProfilePage {
     }
   }
 
-  navigateToPersonalCharity() {
-    this.navCtrl.push(PersonalCharityPage);
+  sum() {
+    var i;
+    var sum = 0;
+    for (i = 0; i < this.amounts.length; i++) {
+      sum += this.amounts[i];
+    }
+    return sum;
+  }
+
+  charitiessupported() {
+    var i;
+    var count = 0;
+    for (i = 0; i < this.amounts.length; i++) {
+      if (this.amounts[i] != 0) {
+        count ++;
+      }
+    }
+    return count;
   }
 
   navigateToPayment() {
