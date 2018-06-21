@@ -71,6 +71,7 @@ export class PersonalCharityPage {
   ionViewWillEnter() {
     this.http.get("https://matte-pistachio-api.herokuapp.com/mycharity").subscribe((result => {var response = result.json();
       this.mycharities = response;
+      console.log(this.mycharities);
       }
     ));
   }
