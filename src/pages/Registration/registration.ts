@@ -68,7 +68,7 @@ export class RegistrationPage {
     } 
     else {
       this.http
-        .post("https://localhost:3000/registration", {
+        .post("https://matte-pistachio-api.herokuapp.com/registration", {
           username: this.username,
           password: this.password,
           email: this.email,
