@@ -69,7 +69,7 @@ export class PersonalCharityPage {
   }
 
   ionViewWillEnter() {
-    this.http.get("http://localhost:3000/mycharity").subscribe((result => {var response = result.json();
+    this.http.get(`http://localhost:3000/mycharity?jwt=${localStorage.getItem("TOKEN")}`).subscribe((result => {var response = result.json();
       this.mycharities = response;
       }
     ));
