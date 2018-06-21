@@ -1,0 +1,10 @@
+<ion-menu [content]="content">
+  <ion-content padding>
+    <ion-list>
+      <button ion-item menuClose (click)="openPage(paymentPage)"> Donate </button>
+      <button ion-item menuClose (click)="openPage(settingsPage)"> Settings </button>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"> </ion-nav>
