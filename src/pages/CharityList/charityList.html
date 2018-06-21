@@ -8,7 +8,9 @@
 
 
 <ion-content padding>
-  
+
+  <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+
   <button ion-item *ngFor="let charity of charities" (click)="navigateToCharity(charity)">
     <ion-thumbnail item-start small>
       <img src="{{charity.img}}">
