@@ -4,8 +4,6 @@ import { AuthService } from "../../auth.service";
 import { Http } from '@angular/http';
 import { TabsPage } from '../Tabs/tabs';
 import { LottieAnimationViewModule } from 'ng-lottie';
-// import { User } from '../../Models/user';
-// import { TabsPage } from '../Tabs/tabs';
 
 @Component({
     selector: 'page-login',

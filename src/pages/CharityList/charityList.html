@@ -1,15 +1,14 @@
 <ion-header>
   <ion-navbar>
-    <button ion-button icon-only menuToggle left>
-      <ion-icon name="menu"> </ion-icon>
-    </button>
-    <!-- <ion-buttons start>
-        </ion-buttons> -->
-    <ion-title> CHARITY LIST </ion-title>
+    <ion-title>
+      Browse Charities
+    </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
+
+  <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
 
   <button ion-item *ngFor="let charity of charities" (click)="navigateToCharity(charity)">
     <ion-thumbnail item-start small>

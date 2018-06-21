@@ -14,12 +14,16 @@ export class PaymentPage {
   stripe = Stripe('pk_test_jDlfN81b4iL42VOZJrfXRI4F');
   card: any;
   public amount: number;
+  public charityid: number;
+  public charityname: string;
   private token: string;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http, public alertCtrl: AlertController, public authService: AuthService) {
+    this.charityid = this.navParams.get("charityid");
+    this.charityname = this.navParams.get("charityname");
   }
 
-  ionViewDidLoad(callback: Function) {
+  ionViewWillEnter(callback: Function) {
 
     this.token = localStorage.getItem("TOKEN");//this.navParams.get("token");
     console.log("payment name", this.token);
@@ -68,7 +72,7 @@ export class PaymentPage {
       this.stripe.createToken(this.card)
         .then((response) => {
           this.http
-            .post(`http://localhost:3000/stripepayment?jwt=${localStorage.getItem("TOKEN")}`, {
+            .post(`https://matte-pistachio-api.herokuapp.com/stripepayment?jwt=${localStorage.getItem("TOKEN")}`, {
               id: response.token.id, amount: this.amount * 100
             })
 
@@ -86,6 +90,23 @@ export class PaymentPage {
               }
             );
           console.log(response.token);
+          this.http
+            .post(`https://matte-pistachio-api.herokuapp.com/donation?jwt=${localStorage.getItem("TOKEN")}`, {
+              amount: this.amount * 100, datefrom: '20 June 2018', charityid: this.charityid
+            })
+            .subscribe(
+              result => {
+                var responseJson = result.json();
+
+                //Store the charge in local storage
+                localStorage.setItem("donation", responseJson.donation);
+                //callback();
+              },
+
+              error => {
+                //callback(error);
+              }
+            );
         })
         .catch((error) => {
           console.error(error)

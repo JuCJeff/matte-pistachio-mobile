@@ -25,6 +25,15 @@ export class MyApp {
       // }
       
     });
+
+    /*
+    if (localStorage.getItem("TOKEN")){
+      this.rootPage = HomePage;
+    }
+    else {
+      this.rootPage = TabsPage;
+    }
+    */
   }
 }
 

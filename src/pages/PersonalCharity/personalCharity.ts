@@ -69,7 +69,7 @@ export class PersonalCharityPage {
   }
 
   ionViewWillEnter() {
-    this.http.get("http://localhost:3000/mycharity").subscribe((result => {var response = result.json();
+    this.http.get("https://matte-pistachio-api.herokuapp.com/mycharity").subscribe((result => {var response = result.json();
       this.mycharities = response;
       }
     ));

@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { Charity } from '../../Models/charity'
 import { Http } from '@angular/http';
-import { PersonalCharityPage } from '../PersonalCharity/personalCharity';
 import { PaymentPage } from '../Payment/payment';
 
 @Component({
@@ -33,19 +32,22 @@ export class CharityProfilePage {
       this.favorited = true;
       console.log(this.favorited);
       //localStorage.setItem("favorited", 'true');
-      this.http.patch("http://localhost:3000/mycharity/" + this.charity.id, {}).subscribe((result => {}));
+      this.http.patch("https://matte-pistachio-api.herokuapp.com/mycharity/" + this.charity.id, {}).subscribe((result => {}));
     }
     
     else if (this.favorited == true) {
       this.favorited = false;
       console.log(this.favorited);
       //localStorage.setItem("favorited", 'false');
-      this.http.patch("http://localhost:3000/notmycharity/" + this.charity.id, {}).subscribe((result => {}));
+      this.http.patch("https://matte-pistachio-api.herokuapp.com/notmycharity/" + this.charity.id, {}).subscribe((result => {}));
     }
   }
 
   navigateToPayment() {
-    this.navCtrl.push(PaymentPage);
+    this.navCtrl.push(PaymentPage, {
+      charityid: this.charity.id,
+      charityname: this.charity.name
+    });
   }
 
 }

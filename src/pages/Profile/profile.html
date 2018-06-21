@@ -5,7 +5,7 @@
         </button>
         <!-- <ion-buttons start>
         </ion-buttons> -->
-        <ion-title> PROFILE PAGE </ion-title>
+        <ion-title> My Profile</ion-title>
     </ion-navbar>
 </ion-header>
 
@@ -22,13 +22,13 @@
     <!--User current status revealed-->
     <ion-grid>
         <ion-row class="orange">
-            <ion-col>$300</ion-col>
-            <ion-col>4</ion-col>
-            <ion-col>$130</ion-col>
+            <ion-col>${{total}}</ion-col>
+            <ion-col>{{mycharities}}</ion-col>
+            <ion-col>${{maximum}}</ion-col>
         </ion-row>
         <ion-row class="tabs">
-            <ion-col>Money Raised</ion-col>
-            <ion-col>My Charity</ion-col>
+            <ion-col>Total Donations</ion-col>
+            <ion-col>Charities Supported</ion-col>
             <ion-col>Most Money</ion-col>
         </ion-row>
     </ion-grid>
@@ -50,8 +50,6 @@
 
     <!--Navigation buttons-->
     <div class="buttons">
-        <button ion-button icon-start color="dark" round outline (click)="navigateToPersonalCharity()">My Charities</button>
-        <button ion-button icon-start color="dark" round outline (click)="navigateToPayment()">Payment</button>
         <button ion-button icon-start color="dark" round outline (click)="navigateToLogin()">Log out</button>
     </div>
 
