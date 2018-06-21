@@ -7,6 +7,7 @@ import { MenuPage } from '../menu/menu';
 import { LoginPage } from '../Login/login';
 import { PaymentPage } from '../Payment/payment';
 import { AuthService } from "../../auth.service";
+import { SettingsPage } from '../settings/settings';
 
 @Component({
   selector: 'page-registration',
@@ -21,11 +22,19 @@ export class TabsPage {
 
   loginData: any = null;
 
-  constructor(public navParams: NavParams, public navCtrl: NavController) {
+  constructor(public navParams: NavParams, public navCtrl: NavController, public authService: AuthService, private app: App) {
       this.loginData = this.navParams.data;
   }
+
   navigateToPayment() {
     this.navCtrl.push(PaymentPage);
   }
+  navigateToSettings() {
+    this.navCtrl.push(SettingsPage);
+  }
 
+  navigateToLogin() {
+    this.authService.logout();
+    this.app.getRootNav().setRoot(LoginPage)
+  }
 }

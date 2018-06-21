@@ -1,10 +1,8 @@
 <ion-menu [content]="mycontent">
     <ion-content padding>
         <ion-list>
-            <button menuClose ion-item (click)="openPage(profilePage)"> profile page </button>
-            <button menuClose ion-item (click)="openPage(charityListPage)"> list of charities</button>
-            <button menuClose ion-item (click)="openPage(paymentPage)"> payments </button>
-            <button menuClose ion-item (click)="openPage(personalCharityPage)"> personal charities </button>
+            <button menuClose ion-item (click)="navigateToPayment()"> payments </button>
+            <button menuClose ion-item (click)="navigateToSettings()"> settings </button>
         </ion-list>
         <ion-list>
             <button ion-button icon-start color="dark" round outline (click)="navigateToLogin()">Log out</button>
