@@ -13,7 +13,7 @@ import { AuthService } from "../../auth.service";
 })
 export class ProfilePage {
 
-  public username: string;
+  public username: string = "";
   public password: string;
   private token: string;
 

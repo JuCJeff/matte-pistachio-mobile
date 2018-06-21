@@ -8,6 +8,7 @@ import { LoginPage } from '../Login/login';
 import { PaymentPage } from '../Payment/payment';
 import { AuthService } from "../../auth.service";
 import { SettingsPage } from '../settings/settings';
+import { EditProfilePage } from '../editprofile/editprofile';
 
 @Component({
   selector: 'page-registration',
@@ -36,5 +37,9 @@ export class TabsPage {
   navigateToLogin() {
     this.authService.logout();
     this.app.getRootNav().setRoot(LoginPage)
+  }
+
+  navigateToEdit() {
+    this.navCtrl.push(EditProfilePage);
   }
 }

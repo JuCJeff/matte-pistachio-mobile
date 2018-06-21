@@ -24,6 +24,7 @@ import { IonicStorageModule } from '@ionic/storage';
 import { LottieAnimationViewModule } from 'ng-lottie';
 import { MenuPage } from '../pages/menu/menu';
 import { SettingsPage } from '../pages/settings/settings';
+import { EditProfilePage } from '../pages/editprofile/editprofile';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { SettingsPage } from '../pages/settings/settings';
     StripeJavaScriptPage,
     StripeNativePage,
     MenuPage,
-    SettingsPage
+    SettingsPage,
+    EditProfilePage
   ],
   
   imports: [
@@ -65,7 +67,8 @@ import { SettingsPage } from '../pages/settings/settings';
     StripeJavaScriptPage,
     StripeNativePage,
     MenuPage,
-    SettingsPage
+    SettingsPage,
+    EditProfilePage
     
   ],
   providers: [

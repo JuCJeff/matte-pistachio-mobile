@@ -4,10 +4,12 @@ import { Injectable } from "@angular/core";
 @Injectable()
 export class AuthService {
 
-    constructor(
-        public http: Http
-    ) {
+    constructor( public http: Http) {
     }
+
+    getBaseUrl(){
+        return "http://localhost:3000";
+      }
 
     getMe(callback) {
         this.http
