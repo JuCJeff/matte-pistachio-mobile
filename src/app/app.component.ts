@@ -5,8 +5,6 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/Tabs/tabs';
-import { PaymentPage } from '../pages/Payment/payment';
-import { SettingsPage } from '../pages/settings/settings';
 @Component({
   templateUrl: 'app.html'
 })
@@ -21,10 +19,11 @@ export class MyApp {
       splashScreen.hide();
 
       if (localStorage.getItem("TOKEN")) {
-        this.rootPage = TabsPage;
-      } else {
         this.rootPage = HomePage;
+      } else {
+        this.rootPage = TabsPage;
       }
+      
     });
   }
 }

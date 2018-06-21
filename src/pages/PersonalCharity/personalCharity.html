@@ -1,24 +1,24 @@
 <ion-header>
-    <ion-navbar>
-        <button ion-button icon-only menuToggle left>
-            <ion-icon name="menu"></ion-icon>
-        </button>
-        <ion-title>
-            Charity List
-        </ion-title>
-    </ion-navbar>
+<ion-navbar>
+    <button ion-button icon-only menuToggle left>
+        <ion-icon name="menu"> </ion-icon>
+    </button>
+    <!-- <ion-buttons start>
+    </ion-buttons> -->
+    <ion-title> MY CHARITIES </ion-title>
+</ion-navbar>
 </ion-header>
 
 
 <ion-content padding>
 
   <!-- <ion-list inset> -->
-    <button ion-item *ngFor="let charity of mycharities" (click)="navigateToCharity(charity)">
-      <ion-thumbnail item-start small>
-        <img src="{{charity.img}}">
-      </ion-thumbnail>
-      <p>{{ charity.name }}</p>
-    </button>
+  <button ion-item *ngFor="let charity of charities" (click)="navigateToCharity(charity)">
+    <ion-thumbnail item-start small>
+      <img src="{{charity.img}}">
+    </ion-thumbnail>
+    <p>{{ charity.name }}</p>
+  </button>
   <!-- </ion-list> -->
-  
+
 </ion-content>

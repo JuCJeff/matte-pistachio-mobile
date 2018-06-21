@@ -23,7 +23,6 @@ import { Stripe } from '@ionic-native/stripe';
 import { IonicStorageModule } from '@ionic/storage';
 import { LottieAnimationViewModule } from 'ng-lottie';
 import { MenuPage } from '../pages/menu/menu';
-import { SettingsPage } from '../pages/settings/settings';
 
 @NgModule({
   declarations: [
@@ -39,9 +38,9 @@ import { SettingsPage } from '../pages/settings/settings';
     TabsPage,
     StripeJavaScriptPage,
     StripeNativePage,
-    MenuPage,
-    SettingsPage
+    MenuPage
   ],
+  
   imports: [
     BrowserModule,
     HttpModule,
@@ -63,8 +62,8 @@ import { SettingsPage } from '../pages/settings/settings';
     TabsPage,
     StripeJavaScriptPage,
     StripeNativePage,
-    MenuPage,
-    SettingsPage
+    MenuPage
+    
   ],
   providers: [
     StatusBar,
