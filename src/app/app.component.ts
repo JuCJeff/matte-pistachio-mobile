@@ -18,11 +18,11 @@ export class MyApp {
       statusBar.styleDefault();
       splashScreen.hide();
 
-      // if(localStorage.getItem("TOKEN")){
-      //   this.rootPage = HomePage;
-      // } else {
-      //   this.rootPage = TabsPage;
-      // }
+      if(localStorage.getItem("TOKEN")){
+        this.rootPage = HomePage;
+      } else {
+        this.rootPage = TabsPage;
+      }
 
     });
   }
