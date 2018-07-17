@@ -32,14 +32,14 @@ export class CharityProfilePage {
       this.favorited = true;
       console.log(this.favorited);
       //localStorage.setItem("favorited", 'true');
-      this.http.patch("https://matte-pistachio-api.herokuapp.com/mycharity/" + this.charity.id, {}).subscribe((result => {}));
+      this.http.patch("https://matte-pistachio-api.herokuapp.com//mycharity/" + this.charity.id, {}).subscribe((result => {}));
     }
     
     else if (this.favorited == true) {
       this.favorited = false;
       console.log(this.favorited);
       //localStorage.setItem("favorited", 'false');
-      this.http.patch("https://matte-pistachio-api.herokuapp.com/notmycharity/" + this.charity.id, {}).subscribe((result => {}));
+      this.http.patch("https://matte-pistachio-api.herokuapp.com//notmycharity/" + this.charity.id, {}).subscribe((result => {}));
     }
   }
 

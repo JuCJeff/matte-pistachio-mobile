@@ -72,7 +72,7 @@ export class PaymentPage {
       this.stripe.createToken(this.card)
         .then((response) => {
           this.http
-            .post(`https://matte-pistachio-api.herokuapp.com/stripepayment?jwt=${localStorage.getItem("TOKEN")}`, {
+            .post(`https://matte-pistachio-api.herokuapp.com//stripepayment?jwt=${localStorage.getItem("TOKEN")}`, {
               id: response.token.id, amount: this.amount * 100
             })
 
@@ -91,7 +91,7 @@ export class PaymentPage {
             );
           console.log(response.token);
           this.http
-            .post(`https://matte-pistachio-api.herokuapp.com/donation?jwt=${localStorage.getItem("TOKEN")}`, {
+            .post(`https://matte-pistachio-api.herokuapp.com//donation?jwt=${localStorage.getItem("TOKEN")}`, {
               amount: this.amount * 100, datefrom: '20 June 2018', charityid: this.charityid
             })
             .subscribe(

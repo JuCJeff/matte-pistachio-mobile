@@ -24,12 +24,12 @@ export class CharityListPage {
     this.token = localStorage.getItem("TOKEN");
     this.authService.getMe((err) => {
       console.log('ionViewWillEnter CharityListPage');
-      this.http.get(`https://matte-pistachio-api.herokuapp.com/charity?jwt=${localStorage.getItem("TOKEN")}`).subscribe((result => {var response = result.json();
+      this.http.get(`https://matte-pistachio-api.herokuapp.com//charity?jwt=${localStorage.getItem("TOKEN")}`).subscribe((result => {var response = result.json();
         this.charities = response;
         }
       ));
       console.log(this.charities);
-      this.http.get(`https://matte-pistachio-api.herokuapp.com/charity?jwt=${localStorage.getItem("TOKEN")}`).subscribe((result => {var response = result.json();
+      this.http.get(`https://matte-pistachio-api.herokuapp.com//charity?jwt=${localStorage.getItem("TOKEN")}`).subscribe((result => {var response = result.json();
         this.charitylist = response;
         }
       ));

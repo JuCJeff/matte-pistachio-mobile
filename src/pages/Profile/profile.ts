@@ -40,11 +40,11 @@ export class ProfilePage {
 
     this.authService.getMe((err, user) => {
       console.log('ionViewDidLoad ProfilePage');
-      this.http.get(`https://matte-pistachio-api.herokuapp.com/charity?jwt=${localStorage.getItem("TOKEN")}`).subscribe((result => {var response = result.json();
+      this.http.get(`https://matte-pistachio-api.herokuapp.com//charity?jwt=${localStorage.getItem("TOKEN")}`).subscribe((result => {var response = result.json();
         this.charities = response;
         }
       ));
-      this.http.get(`https://matte-pistachio-api.herokuapp.com/donation?jwt=${localStorage.getItem("TOKEN")}`).subscribe((result => {var response = result.json();
+      this.http.get(`https://matte-pistachio-api.herokuapp.com//donation?jwt=${localStorage.getItem("TOKEN")}`).subscribe((result => {var response = result.json();
         this.donations = response;
         this.createAmountList();
         this.pieChart = new Chart(this.pieCanvas.nativeElement, {
@@ -80,11 +80,11 @@ export class ProfilePage {
 
     this.authService.getMe((err, user) => {
       console.log('ionViewWillEnter ProfilePage');
-      this.http.get(`https://matte-pistachio-api.herokuapp.com/charity?jwt=${localStorage.getItem("TOKEN")}`).subscribe((result => {var response = result.json();
+      this.http.get(`https://matte-pistachio-api.herokuapp.com//charity?jwt=${localStorage.getItem("TOKEN")}`).subscribe((result => {var response = result.json();
         this.charities = response;
         }
       ));
-      this.http.get(`https://matte-pistachio-api.herokuapp.com/donation?jwt=${localStorage.getItem("TOKEN")}`).subscribe((result => {var response = result.json();
+      this.http.get(`https://matte-pistachio-api.herokuapp.com//donation?jwt=${localStorage.getItem("TOKEN")}`).subscribe((result => {var response = result.json();
         this.donations = response;
         this.createAmountList();
         this.total = this.sum();

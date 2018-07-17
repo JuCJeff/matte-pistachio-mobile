@@ -13,7 +13,7 @@ export class AuthService {
 
     getMe(callback) {
         this.http
-            .get("https://matte-pistachio-api.herokuapp.com/me?jwt=" + localStorage.getItem("TOKEN"))
+            .get("https://matte-pistachio-api.herokuapp.com//me?jwt=" + localStorage.getItem("TOKEN"))
             .subscribe(
                 result => {
                     var responseJson = result.json();
@@ -28,7 +28,7 @@ export class AuthService {
 
     login(username: string, password: string, callback: Function) {
         this.http
-            .post("https://matte-pistachio-api.herokuapp.com/login", {
+            .post("https://matte-pistachio-api.herokuapp.com//login", {
                 username: username,
                 password: password
             })
